@@ -32,6 +32,16 @@
 body { font-family: var(--f-body); background: #FFFFFF; color: var(--c-ink-2); word-break: keep-all; }
 h1, h2 { font-family: var(--f-display); font-weight: 400; color: var(--c-ink); letter-spacing: -.01em; }
 h3 { color: var(--c-ink); }
+/* 제목 속 작은 설명 글은 본문 글꼴로(잘난고딕이 두꺼워 휴대폰에서 답답함) */
+h1 small, h2 small, h3 small { font-family: var(--f-body); font-weight: 600; letter-spacing: 0; }
+
+/* 휴대폰: 숫자 카드 두 칸을 같은 너비로(긴 글자가 한 칸을 밀어내지 않게) */
+@media (max-width: 860px) {
+  .grid4, .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .kpi b { font-size: clamp(19px, 5.4vw, 26px) !important; }
+}
+/* 막대 안 글자가 칸보다 길면 site.js / 쪽 스크립트가 짧게 줄이거나 숨긴다(fitStack) */
+.stack .seg { overflow: hidden; }
 
 /* 예전 세 가지 색 띠는 쓰지 않음 */
 .bar, .bar-top { display: none !important; }
