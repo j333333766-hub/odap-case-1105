@@ -32,6 +32,10 @@ h1{font-size:28px;margin:6px 0 4px}h2{font-size:21px;margin:0 0 4px}
 .stack{display:flex;gap:2px;height:44px;border-radius:6px;overflow:hidden;margin:6px 0}
 .stack .seg{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;white-space:nowrap;border-radius:4px}
 .stack .seg.light{color:#0b0b0b}
+.cmp{border:1px solid var(--line,#e7e5df);border-radius:12px;padding:12px 16px 14px;margin:16px 0 4px}
+.cmp .rowlab:first-of-type{margin-top:4px}
+.cmp-n{margin-left:auto;color:var(--muted);font-weight:600}
+.cmp-arrow{margin:10px 0 0;font-size:15px;color:var(--ink2)}.cmp-arrow b{color:var(--jiyeon)}
 .rowlab{font-weight:700;margin-top:12px}.rowlab small{color:var(--muted);font-weight:400}
 .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:10px}
 .fl{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
@@ -91,6 +95,14 @@ table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}th,td{bo
     <div class="stack" id="st6"></div>
     <div class="rowlab">수업 끝 ‘탐정 메모 — 다시 생각해 보기’ <small id="n7"></small></div>
     <div class="stack" id="st7"></div>
+    <div class="cmp">
+      <div class="legend"><span><i style="background:var(--minsu)"></i>민수</span><span><i style="background:var(--jiyeon)"></i>지연(정답)</span><span><i style="background:var(--neither)"></i>둘 다 아님</span><span class="cmp-n" id="cmpN"></span></div>
+      <div class="rowlab">처음 생각 <small>수업 시작</small></div>
+      <div class="stack" id="stB"></div>
+      <div class="cmp-arrow" id="cmpArrow"></div>
+      <div class="rowlab">다시 생각 <small>수업 끝</small></div>
+      <div class="stack" id="stA"></div>
+    </div>
     <div class="kpis">
       <div class="kpi"><b id="k-pre"></b><span>처음 생각 정답률 (두 번 모두 답한 학생)</span></div>
       <div class="kpi"><b id="k-post"></b><span>다시 생각 정답률 (같은 학생)</span></div>
@@ -164,6 +176,14 @@ $('k-post').textContent = `${Math.round(pct(postOk, both))}%`;
 $('k-move').textContent = `${Math.round(pct(29, fromMinsu))}%`;
 document.querySelectorAll('#k-pre,#k-post').forEach((e) => (e.nextElementSibling.textContent += ` · ${both}명`));
 $('k-move').nextElementSibling.textContent += ` · ${29}/${fromMinsu}명`;
+// 같은 학생(두 번 모두 답한 학생)의 처음 생각 ↔ 다시 생각 비교 막대 — TR 에서 바로 계산
+const side = (i) => { const o = { 민수: 0, 지연: 0, '둘 다 아님': 0 }; TR.forEach(([l, v]) => { o[l.split(' → ')[i]] += v; }); return o; };
+const B = side(0), A = side(1);
+const parts3 = (o) => [['민수', o['민수'], 'var(--minsu)'], ['지연', o['지연'], 'var(--jiyeon)'], ['둘 다 아님', o['둘 다 아님'], 'var(--neither)', true]];
+stack('stB', parts3(B)); stack('stA', parts3(A));
+const r = (v) => Math.round(pct(v, both));
+$('cmpN').textContent = `두 번 모두 답한 같은 ${both}명`;
+$('cmpArrow').innerHTML = `↓ 반례를 만난 뒤 <b>지연 ${r(B['지연'])}% → ${r(A['지연'])}%</b> · 민수 ${r(B['민수'])}% → ${r(A['민수'])}%`;
 const TAG = { good: ['t-good', '정답'], stay: ['t-stay', '오개념 유지'], other: ['t-other', '기타'] };
 $('flow').innerHTML = TR.slice(0, 3).map(([l, v, k]) => `<div class="fl" title="${l} ${v}명 / ${both}명"><span class="tag ${TAG[k][0]}">${TAG[k][1]}</span><div>${l}</div><b>${v}명</b> <span class="note">(${Math.round(pct(v, both))}%)</span></div>`).join('')
   + `<div class="fl"><span class="tag t-other">기타</span><div>지연 → 민수 · 민수 → 둘 다 아님 등</div><b>${TR.slice(3).reduce((a, t) => a + t[1], 0)}명</b></div>`;
