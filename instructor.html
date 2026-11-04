@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>강사 소개 · 조창현</title>
+  <link rel="icon" href="img/instructor-face.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <style>
+    :root { --red: #e84118; --blue: #17b5e2; --yellow: #ffc900; --ink: #15181f; --muted: #5b6270; --line: #ebe7df; --bg: #fbf8f2; --card: #fff; --red-soft: #fff0eb; --blue-soft: #e7f7fc; --yellow-soft: #fff7d6; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Pretendard Variable', Pretendard, 'Malgun Gothic', sans-serif; font-size: 16.5px; line-height: 1.7; word-break: keep-all; }
+    a { color: inherit; }
+    .bar { height: 6px; background: linear-gradient(90deg, var(--red) 0 33.4%, var(--blue) 33.4% 66.7%, var(--yellow) 66.7%); }
+    .back { max-width: 1040px; margin: 0 auto; padding: 12px 20px 0; }
+    .back a { display: inline-flex; gap: 6px; align-items: center; text-decoration: none; font-weight: 700; font-size: 14.5px; color: var(--muted); padding: 6px 12px; border: 1px solid var(--line); border-radius: 99px; background: #fff; }
+    .back a:hover { color: var(--red); border-color: var(--red); }
+
+    /* 첫 화면 */
+    .hero { max-width: 1040px; margin: 0 auto; padding: 18px 20px 8px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: end; }
+    .hero .kicker { display: inline-block; font-weight: 800; font-size: 14px; color: var(--red); background: var(--red-soft); padding: 4px 12px; border-radius: 99px; letter-spacing: .2px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 54px); line-height: 1.12; margin: 14px 0 6px; letter-spacing: -1.5px; }
+    .hero h1 small { display: block; font-size: clamp(16px, 2.2vw, 19px); font-weight: 700; color: var(--muted); letter-spacing: -.3px; margin-top: 10px; }
+    .hero .line { font-size: clamp(17px, 2.3vw, 20px); font-weight: 600; margin: 16px 0 0; max-width: 34em; }
+    .hero .line b { background: linear-gradient(transparent 62%, var(--yellow) 62%); }
+    .roles { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .roles li { font-size: 14.5px; font-weight: 700; padding: 6px 13px; border-radius: 10px; background: #fff; border: 1px solid var(--line); }
+    .roles li:nth-child(3n+1) { border-left: 4px solid var(--red); }
+    .roles li:nth-child(3n+2) { border-left: 4px solid var(--blue); }
+    .roles li:nth-child(3n) { border-left: 4px solid var(--yellow); }
+    .figure { position: relative; height: 470px; display: flex; justify-content: center; align-items: flex-end; }
+    .figure::before { content: ''; position: absolute; bottom: 18px; width: 270px; height: 270px; border-radius: 50%; background: conic-gradient(from 200deg, var(--yellow), var(--red), var(--blue), var(--yellow)); opacity: .85; }
+    .figure::after { content: ''; position: absolute; bottom: 6px; width: 170px; height: 18px; border-radius: 50%; background: radial-gradient(#0003, transparent 70%); }
+    .figure img { position: relative; z-index: 1; height: 100%; width: auto; filter: drop-shadow(0 8px 10px #0002); animation: pop .7s cubic-bezier(.2,1.4,.4,1) both; }
+    .bubble { position: absolute; z-index: 2; top: 4px; left: -84px; background: #fff; border: 2px solid var(--ink); border-radius: 16px; padding: 8px 13px; font-weight: 800; font-size: 15px; box-shadow: 3px 3px 0 var(--ink); animation: pop .6s .35s cubic-bezier(.2,1.4,.4,1) both; }
+    .bubble::after { content: ''; position: absolute; right: 26px; bottom: -11px; width: 16px; height: 16px; background: #fff; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); }
+    @keyframes pop { from { transform: translateY(18px) scale(.94); opacity: 0; } to { transform: none; opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .figure img, .bubble { animation: none; } }
+
+    /* 숫자 */
+    .stats { max-width: 1040px; margin: 10px auto 0; padding: 0 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 16px 14px; position: relative; overflow: hidden; }
+    .stat::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--c); }
+    .stat b { display: block; font-size: 30px; line-height: 1.1; letter-spacing: -1px; color: var(--c); }
+    .stat span { font-size: 14px; font-weight: 600; color: var(--muted); }
+
+    main { max-width: 1040px; margin: 0 auto; padding: 8px 20px 60px; }
+    section { margin-top: 34px; }
+    h2 { font-size: 24px; letter-spacing: -.6px; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+    h2::before { content: ''; width: 12px; height: 26px; border-radius: 4px; background: var(--c, var(--red)); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .tile { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .tile .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 24px; background: var(--s); }
+    .tile h3 { margin: 4px 0 0; font-size: 18px; letter-spacing: -.3px; }
+    .tile p { margin: 0; color: var(--muted); font-size: 15px; }
+    .tile .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+    .tile .tags span { font-size: 12.5px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--s); }
+
+    .books { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .book { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px; text-decoration: none; transition: transform .15s; }
+    .book:hover { transform: translateY(-2px); }
+    .book img { width: 86px; border-radius: 6px; box-shadow: 0 6px 14px #0002; }
+    .book b { display: block; font-size: 17px; line-height: 1.4; }
+    .book span { font-size: 14px; color: var(--muted); }
+
+    .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 62px; top: 6px; bottom: 6px; width: 3px; background: linear-gradient(var(--red), var(--blue), var(--yellow)); border-radius: 3px; }
+    .timeline li { display: grid; grid-template-columns: 52px 1fr; gap: 26px; padding: 7px 0; position: relative; }
+    .timeline li::before { content: ''; position: absolute; left: 56px; top: 15px; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 3px solid var(--red); }
+    .timeline time { font-weight: 800; color: var(--muted); text-align: right; font-size: 15px; padding-top: 2px; }
+    .timeline div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 13px; font-size: 15.5px; }
+    .timeline div em { font-style: normal; font-weight: 800; color: var(--red); }
+
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .box { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; }
+    .box h3 { margin: 0 0 6px; font-size: 17px; }
+    .box ul { margin: 0; padding-left: 18px; font-size: 15px; }
+    .box li { margin: 3px 0; }
+    details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 4px 18px; margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 800; padding: 10px 0; }
+    details[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+    details ul { margin: 6px 0 12px; padding-left: 18px; font-size: 15px; }
+    details h4 { margin: 12px 0 2px; font-size: 15.5px; }
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr 190px; gap: 12px; }
+      .figure { height: 330px; }
+      .figure::before { width: 180px; height: 180px; }
+      .bubble { left: -96px; top: 0; font-size: 13px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; }
+      .figure { order: -1; height: 300px; }
+      .bubble { left: calc(50% - 185px); top: 4px; }
+      .grid, .books, .two { grid-template-columns: 1fr; }
+      .timeline::before { left: 50px; } .timeline li { grid-template-columns: 40px 1fr; } .timeline li::before { left: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bar"></div>
+  <div class="back"><a href="index.html">← 특강 화면으로</a></div>
+
+  <header class="hero">
+    <div>
+      <span class="kicker">오늘의 강사</span>
+      <h1>조창현<small>구월중학교 수학교사 · 교무기획부장</small></h1>
+      <p class="line">3D 영상, 테셀레이션, 매쓰투어, 바이브코딩까지 <b>수학을 직접 만들고 체험하는 수업</b>을 디자인하는 교사</p>
+      <ul class="roles">
+        <li>교실혁명 선도교원</li>
+        <li>『알지오매스 활용 문항디자인』 저자</li>
+        <li>「오답의 재발견」 운영학교 책임교사</li>
+        <li>2026 인천 수학교육 정책 추진 운영위원</li>
+        <li>인정교과서 『읽걷쓰와 인공지능』 집필위원</li>
+        <li>동부·남부 영재교육원 지도강사</li>
+      </ul>
+    </div>
+    <div class="figure">
+      <span class="bubble">수학은 만들면서 배워요!</span>
+      <img src="img/instructor.png" alt="팔짱을 낀 조창현 선생님 캐리커처">
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat" style="--c:var(--red)"><b>200회+</b><span>교원·학생·일반 대상 강의</span></div>
+    <div class="stat" style="--c:#0f9bc6"><b>1,800명</b><span>교육부 수업콘서트 강연 청중</span></div>
+    <div class="stat" style="--c:#c99a00"><b>13년</b><span>영재교육원 지도강사</span></div>
+    <div class="stat" style="--c:#7a4fd6"><b>전국 1등급</b><span>자유학기제 실천사례 연구대회</span></div>
+  </div>
+
+  <main>
+    <section style="--c:var(--red)">
+      <h2>직접 만든 수학 수업</h2>
+      <div class="grid">
+        <article class="tile" style="--s:var(--red-soft)"><span class="ic">🕶️</span><h3>수학으로 3D 영상 만들기</h3>
+          <p>반비례·일차함수·부채꼴로 3D 영상의 원리를 분석하고 직접 제작해요. 러시아 블라디보스토크 현지 학생들과도 나눈 수업.</p>
+          <div class="tags"><span>애너글리프</span><span>렌티큘러</span><span>매직아이</span><span>VR</span></div></article>
+        <article class="tile" style="--s:var(--blue-soft)"><span class="ic">🔷</span><h3>테셀레이션 만들기</h3>
+          <p>정다각형·헤쉬 타일링 19가지 유형부터 펜로즈·아인슈타인 타일링까지.</p>
+          <div class="tags"><span>정규·반정규</span><span>비주기 타일링</span><span>에셔</span></div></article>
+        <article class="tile" style="--s:var(--yellow-soft)"><span class="ic">🗺️</span><h3>매쓰투어(MathTour)</h3>
+          <p>도시를 수학 교실로. 인천대공원·인하대·차이나타운을 게더타운·로블록스·웹앱으로.</p>
+          <div class="tags"><span>메타버스</span><span>방탈출</span><span>오프라인 실행판</span></div></article>
+        <article class="tile" style="--s:var(--red-soft)"><span class="ic">🔎</span><h3>「오답의 재발견」</h3>
+          <p>학생 생각 기록 → 오개념 진단 → 처방 수업. AI 맞춤 피드백 수학 일기 플랫폼.</p>
+          <div class="tags"><span>창의재단 운영학교</span><span>AI 피드백</span></div></article>
+        <article class="tile" style="--s:var(--blue-soft)"><span class="ic">📱</span><h3>수학 웹앱·도구</h3>
+          <p>중1 단원별 체험형 웹앱 27종, 계산왕 대회 앱, 알지오3D 그림판, 수업 화면 모니터링.</p>
+          <div class="tags"><span>바이브코딩</span><span>알지오매스</span></div></article>
+        <article class="tile" style="--s:var(--yellow-soft)"><span class="ic">🎵</span><h3>수학 × 예술</h3>
+          <p>피타고라스 음률 계산기, 파이송(π Song), 프랙털 아트, 넓이 역설 마술.</p>
+          <div class="tags"><span>음률</span><span>프랙털</span><span>퍼즐</span></div></article>
+      </div>
+    </section>
+
+    <section style="--c:var(--blue)">
+      <h2>쓴 책</h2>
+      <div class="books">
+        <a class="book" href="https://product.kyobobook.co.kr/detail/S000218972927" target="_blank" rel="noopener"><img src="img/book-item-design.jpg" alt=""><div><b>알지오매스 활용 문항디자인</b><span>지오북스 · 오늘 계산왕 1등 선물</span></div></a>
+        <a class="book" href="https://product.kyobobook.co.kr/detail/S000213104896" target="_blank" rel="noopener"><img src="img/book-project.jpg" alt=""><div><b>알지오매스 활용 중학교 수학 프로젝트 활동</b><span>지오북스 · 오늘 계산왕 2등 선물</span></div></a>
+      </div>
+    </section>
+
+    <section style="--c:var(--yellow)">
+      <h2>걸어온 길</h2>
+      <ul class="timeline">
+        <li><time>2019</time><div><em>교육부 자유학기제 수업콘서트</em> 「수학으로 3D 영상 만들기」 강연 · 자유학기제 실천사례 연구대회 <em>전국 1등급</em></div></li>
+        <li><time>2020</time><div>러시아 자유학기 우수수업 나눔(블라디보스토크·우스리스크) · 수학체험전 지도부스 <em>대상</em> · YTN 보도</div></li>
+        <li><time>2022</time><div>게더타운 in 인천대공원 수학체험전 우수콘텐츠 · 교육정보화연구대회 인천 2등급</div></li>
+        <li><time>2023</time><div>전국수학교사한마당 연수·체험부스 · 알지오매스 우수사례 공모전 우수상</div></li>
+        <li><time>2024</time><div>싱가포르 영재교육 심화연수 · 우즈베키스탄 글로벌 창의융합교육캠프 · 창의재단 공학도구 평가 프로그램 개발</div></li>
+        <li><time>2025</time><div>전국수학교원컨퍼런스(테셀레이션) · 구월중 교무기획부장 · 공학도구 활용 수업지도안 개발</div></li>
+        <li><time>2026</time><div>「오답의 재발견」 운영학교 책임교사 · 이주배경학생 수학학습어휘 프로그램 개발 · 인천 수학교육 정책 추진 운영위원</div></li>
+      </ul>
+    </section>
+
+    <section style="--c:var(--red)">
+      <h2>지금 함께하는 일</h2>
+      <div class="two">
+        <div class="box"><h3>정책·자문</h3><ul>
+          <li>2026 인천 수학교육 정책 추진 운영위원</li><li>2026 인천형 수학체험관 추진위원</li>
+          <li>인천광역시교육청 읽걷쓰 추진단 · 융합교육 교사지원단</li><li>한국과학창의재단 AI 연계 수학교육자료 기획자문</li></ul></div>
+        <div class="box"><h3>강의·연수</h3><ul>
+          <li>2026 AI 기반 수업평가 강사단 양성 연수</li><li>중등 1급 정교사 자격연수 · 신규 임용교사 직무연수</li>
+          <li>알지오매스 강사 양성 · 블록코딩 주강사</li><li>바이브코딩·AI 활용 교원·학생 연수</li></ul></div>
+      </div>
+
+      <details>
+        <summary>상세 약력 펼쳐 보기</summary>
+        <h4>학력</h4>
+        <ul><li>강원대학교 사범대학 수학교육과 졸업</li><li>인천대학교 교육대학원 교수설계·교육미디어 전공 석사</li></ul>
+        <h4>경력</h4>
+        <ul><li>현) 인천 구월중학교 수학교사, 교무기획부장 (2025.3.~)</li><li>영흥중학교 (2022~2025) · 만수북중학교 (2018~2022) · 동인천중학교 (2013~2018)</li>
+          <li>동부·남부 영재교육원 지도강사 (13년) · 수학클리닉 지도강사 (2020~2026) · 인천 진단수학 선도교원 (2022~2024)</li></ul>
+        <h4>저서·집필</h4>
+        <ul><li>『알지오매스 활용 중학교 수학 프로젝트 활동』, 『알지오매스 활용 문항디자인』 (지오북스)</li><li>인천 인정교과서 『읽걷쓰와 인공지능』 집필위원</li>
+          <li>「수학 자기주도학습 자료집(중3→고1 징검다리)」 공동개발</li><li>논문 「자유학기제 주제선택 활동으로서 수학교과 3D 영상 만들기 프로그램 개발」</li></ul>
+        <h4>연구·정부사업</h4>
+        <ul><li>한국과학창의재단 공학도구 활용 탐구활동 평가 일체화 프로그램 개발 (2024)</li><li>2022 개정 알지오매스 수업 콘텐츠 개발 (2024)</li>
+          <li>공학도구 활용 중학교 수업지도안 개발 (2025) · 교사재교육 지원사업 프로그램 개발 (2025~2026)</li>
+          <li>교육부 이주배경학생을 위한 수학학습어휘 프로그램 개발 (2026) · 북부 수학개념어휘사전 (2026)</li></ul>
+        <h4>출제·심사</h4>
+        <ul><li>인천수학올림피아드(IMIC) 중등부 출제위원 · 영재교육원 선발 문항 출제</li><li>인천교육종단연구 역량검사 중등 수리 채점위원(팀장)</li><li>「질문으로 깊어지는 수학 사고 실험 한마당」 심사위원</li></ul>
+        <h4>수상</h4>
+        <ul><li>2019 자유학기제 실천사례 연구대회 전국 1등급</li><li>2020 수학체험전 지도부스 대상</li><li>2022 수학체험전 우수콘텐츠 (과학기술정보통신부 주관) · 교육정보화연구대회 인천 2등급</li>
+          <li>2023 알지오매스 우수사례 공모전 우수상 · 온라인 수학 및 기초과학체험전 우수콘텐츠 전국 2위</li></ul>
+      </details>
+    </section>
+
+    <footer>2026. 11. 4.(수) 인하대학교 수학교육과 특강 · AI 기반 알지오매스 활용 수업 사례</footer>
+  </main>
+</body>
+</html>

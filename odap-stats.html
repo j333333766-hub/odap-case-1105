@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오개념 분석과 수업 변화</title>
+<!-- 11/4 인하대 특강 4단계: 「오답의 재발견」 학교 앱(odap-rediscovery) 기록 집계(2026-11-03 저녁, 1-1~1-8반, 시연용 1-11반·테스트 계정 제외).
+     이름·학번 없이 숫자만 넣었다. 다시 집계하려면 세션 기록의 fs.cjs(조회 전용) 방식 — 이 파일은 숫자를 직접 고친다. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap">
+<style>
+:root{color-scheme:light;--surface:#fcfcfb;--card:#ffffff;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e6e5e0;
+  --minsu:#eb6834;--jiyeon:#2a78d6;--neither:#a3a29c;--seq-1:#2a78d6;--seq-2:#a9c8f0;--accent:#e84118}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font:16px/1.6 "Noto Sans KR","Malgun Gothic",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
+.bar-top{height:6px;background:linear-gradient(90deg,#e84118 0 33%,#17b5e2 33% 66%,#ffc900 66%)}
+h1{font-size:28px;margin:6px 0 4px}h2{font-size:21px;margin:0 0 4px}
+.sub{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:16px 0}
+.note{color:var(--ink2);font-size:14px;margin:6px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0 6px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:34px;line-height:1.1;font-weight:800}.kpi span{color:var(--ink2);font-size:14px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink2);margin:6px 0 10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) 64px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px solid #f1f0ec}
+.hrow:last-child{border-bottom:0}
+.hrow .lab{font-size:15px}.hrow .lab small{display:block;color:var(--muted);font-size:12.5px}
+.hrow .val{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.track{height:18px;background:#f3f2ee;border-radius:4px;display:flex;gap:2px;overflow:hidden}
+.seg{height:100%;border-radius:4px}
+.stack{display:flex;gap:2px;height:44px;border-radius:6px;overflow:hidden;margin:6px 0}
+.stack .seg{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;white-space:nowrap;border-radius:4px}
+.stack .seg.light{color:#0b0b0b}
+.rowlab{font-weight:700;margin-top:12px}.rowlab small{color:var(--muted);font-weight:400}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:10px}
+.fl{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.fl b{font-size:28px;font-weight:800}.fl .tag{display:inline-block;font-size:13px;font-weight:700;padding:1px 8px;border-radius:999px;margin-bottom:4px}
+.t-good{background:#e3efff;color:#1d5fb0}.t-stay{background:#fdebe3;color:#b4441b}.t-other{background:#f1f0ec;color:#52514e}
+details{margin-top:10px}summary{cursor:pointer;color:var(--ink2);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}td.n{text-align:right;font-variant-numeric:tabular-nums}
+.quote{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 4px}
+.quote div{border-radius:12px;padding:10px 12px;font-size:15px}.quote .a{background:#fdf0ea}.quote .b{background:#eaf2fc}
+.quote b{display:block}
+.caveat{background:#fff8db;border:1px solid #f5d06f;border-radius:12px;padding:10px 14px;font-size:14px;color:#6b4e00}
+[title]{cursor:default}
+@media (max-width:640px){.hrow{grid-template-columns:1fr 64px}.hrow .track{grid-column:1/-1;grid-row:2}.quote{grid-template-columns:1fr}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="bar-top"></div>
+<div class="wrap">
+  <p class="sub" style="margin:0">「오답의 재발견」 프로젝트 · 구월중학교 1학년 · 입체도형(회전체)</p>
+  <h1>학생 오개념 분석과 수업 뒤 변화</h1>
+  <p class="sub">학습 앱 기록 집계 · 2026. 11. 3. 기준 · 1학년 1~8반(「오답의 재발견」 수업을 한 반) · 이름 없이 숫자만</p>
+
+  <!-- 1. 사전 진단 -->
+  <section class="card">
+    <h2>① 수업 전: 회전체 사전 진단으로 본 오개념</h2>
+    <p class="note">「회전체 탐정 노트」 9문항(답 + 이유 + 확신도) 제출 <b>67명</b>. 틀린 보기를 고르고 확신도가 3~4점이면 그 보기에 연결된 오개념의 증거 1개로 보고, 증거가 2개 이상이면 <b>확인</b>, 1개면 <b>의심</b>으로 분류했어요.</p>
+    <div class="legend"><span><i style="background:var(--seq-1)"></i>확인(증거 2개 이상)</span><span><i style="background:var(--seq-2)"></i>의심(증거 1개)</span></div>
+    <div id="mis"></div>
+    <details><summary>표로 보기</summary><table id="misT"><tr><th>코드</th><th>오개념</th><th>확인</th><th>의심</th><th>비율</th></tr></table></details>
+  </section>
+
+  <!-- 2. 1차시 처음 생각 -->
+  <section class="card">
+    <h2>② 1차시 시작: 누구의 말이 맞을까?</h2>
+    <div class="quote">
+      <div class="a"><b>민수</b>"회전체를 회전축에 수직인 평면으로 자를 때 생기는 단면은 원 모양이야."</div>
+      <div class="b"><b>지연 (정답)</b>"회전체를 회전축에 수직인 평면으로 자를 때 생기는 단면은 원 모양이 아닐 수도 있어."</div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b id="k-minsu"></b><span>민수를 고른 학생 (오개념)</span></div>
+      <div class="kpi"><b id="k-sure"></b><span>민수를 고른 학생 중 ‘매우 자신 있음’(4점)</span></div>
+      <div class="kpi"><b id="k-jiyeon"></b><span>처음부터 지연(정답)을 고른 학생</span></div>
+    </div>
+    <div class="legend"><span><i style="background:var(--minsu)"></i>민수</span><span><i style="background:var(--jiyeon)"></i>지연(정답)</span><span><i style="background:var(--neither)"></i>둘 다 아님</span></div>
+    <div class="rowlab">처음 생각 <small id="n0"></small></div>
+    <div class="stack" id="st0"></div>
+    <div class="rowlab">민수를 고른 학생의 자신감 <small id="nc"></small></div>
+    <div class="stack" id="stc"></div>
+    <p class="note">→ 오답이 ‘몰라서 찍은 답’이 아니라 <b>자신 있게 믿는 생각</b>이라는 것 — 그래서 반례를 직접 보게 하는 처방 수업이 필요해요.</p>
+  </section>
+
+  <!-- 3. 수업 중·후 -->
+  <section class="card">
+    <h2>③ 반례를 만난 뒤: 수업 중·끝의 변화</h2>
+    <p class="note">[문제 상황 2] 꼭짓점 하나만 축에 닿은 직각삼각형을 돌리면, 가운데가 빈 단면이 생겨요. 이 단면을 “원 모양이라고 부를 수 있을까?”</p>
+    <div class="rowlab">수업 중 판단 <small id="n6"></small></div>
+    <div class="stack" id="st6"></div>
+    <div class="rowlab">수업 끝 ‘탐정 메모 — 다시 생각해 보기’ <small id="n7"></small></div>
+    <div class="stack" id="st7"></div>
+    <div class="kpis">
+      <div class="kpi"><b id="k-pre"></b><span>처음 생각 정답률 (두 번 모두 답한 학생)</span></div>
+      <div class="kpi"><b id="k-post"></b><span>다시 생각 정답률 (같은 학생)</span></div>
+      <div class="kpi"><b id="k-move"></b><span>민수 → 지연으로 생각을 바꾼 비율 (처음 민수였던 학생 중)</span></div>
+    </div>
+    <div class="flow" id="flow"></div>
+    <details><summary>표로 보기</summary><table id="trT"><tr><th>처음 생각 → 다시 생각</th><th>학생 수</th></tr></table></details>
+    <p class="caveat">읽을 때 주의: 수업 끝 단계까지 답한 학생은 일부(73명)예요. 시간이 모자라 끝까지 못 간 반·학생이 있어 끝까지 간 학생 쪽으로 기울어 있을 수 있어요. 사후 진단은 아직 하지 않았어요.</p>
+  </section>
+</div>
+<script>
+// ---- 집계 숫자(2026-11-03, 학교 앱 기록) ----
+const MIS = [
+  ['M1', '회전축에 수직인 평면으로 자른 단면은 항상 꽉 찬 원이다', 9, 14],
+  ['M2', '단면(넓이가 있는 면)과 단면의 경계(선)를 혼동한다', 5, 22],
+  ['M3', '회전축에 수직인 평면과 회전축을 포함하는 평면을 혼동한다', 9, 16],
+  ['M4', '회전축에 수직인 평면으로 자른 단면은 높이와 관계없이 같다', 2, 16],
+  ['M5', '회전축을 포함하는 평면으로 자른 단면이 방향마다 다르다', 0, 38],
+  ['M6', '회전축을 포함하는 평면으로 자른 단면의 대칭축을 잘못 안다', 4, 28],
+  ['M7', '회전축 반대편을 빠뜨린다(단면을 반쪽만 생각)', 0, 7],
+  ['M8', '축에서 떨어진 도형을 돌려 생기는 빈 공간을 빠뜨린다', 2, 17],
+  ['M9', '도형이 축에 닿아 있으면 단면이 꽉 찬 원이라고 생각한다', 3, 21],
+];
+const PRE_N = 67;
+const S0 = { minsu: 110, jiyeon: 73, neither: 8 };
+const MINSU_CONF = { 4: 66, 3: 12, 2: 24, 1: 5 };
+const S6 = { no: 61, yes: 15, unsure: 4 };
+const S7 = { minsu: 19, jiyeon: 51, neither: 3 };
+const TR = [['민수 → 지연', 23, 'good'], ['지연 → 지연', 26, 'good'], ['민수 → 민수', 17, 'stay'], ['지연 → 민수', 2, 'other'], ['민수 → 둘 다 아님', 2, 'other'], ['둘 다 아님 → 둘 다 아님', 1, 'other']];
+
+const pct = (a, n) => (n ? Math.round((a / n) * 1000) / 10 : 0);
+const sum = (o) => Object.values(o).reduce((a, b) => a + b, 0);
+const $ = (id) => document.getElementById(id);
+
+// ① 오개념 막대(확인+의심, 큰 순서)
+const misSorted = [...MIS].sort((a, b) => (b[2] + b[3]) - (a[2] + a[3]));
+$('mis').innerHTML = misSorted.map(([c, t, cf, su]) => {
+  const any = pct(cf + su, PRE_N);
+  return `<div class="hrow" title="${c} ${t}&#10;확인 ${cf}명 · 의심 ${su}명 / ${PRE_N}명 (${any}%)">
+    <div class="lab">${t}<small>${c}</small></div>
+    <div class="track"><div class="seg" style="width:${pct(cf, PRE_N)}%;background:var(--seq-1)"></div><div class="seg" style="width:${pct(su, PRE_N)}%;background:var(--seq-2)"></div></div>
+    <div class="val">${Math.round(any)}%</div></div>`;
+}).join('');
+$('misT').insertAdjacentHTML('beforeend', misSorted.map(([c, t, cf, su]) => `<tr><td>${c}</td><td>${t}</td><td class="n">${cf}</td><td class="n">${su}</td><td class="n">${pct(cf + su, PRE_N)}%</td></tr>`).join(''));
+
+// 100% 막대
+function stack(id, parts) {
+  const n = parts.reduce((a, p) => a + p[1], 0);
+  $(id).innerHTML = parts.filter((p) => p[1]).map(([lab, v, color, light]) => {
+    const w = pct(v, n);
+    return `<div class="seg ${light ? 'light' : ''}" style="width:${w}%;background:${color}" title="${lab} ${v}명 / ${n}명 (${w}%)">${w >= 9 ? `${lab} ${Math.round(w)}%` : ''}</div>`;
+  }).join('');
+  return n;
+}
+$('n0').textContent = `(응답 ${stack('st0', [['민수', S0.minsu, 'var(--minsu)'], ['지연', S0.jiyeon, 'var(--jiyeon)'], ['둘 다 아님', S0.neither, 'var(--neither)', true]])}명)`;
+const nc = stack('stc', [['매우 자신(4)', MINSU_CONF[4], '#b4441b'], ['자신(3)', MINSU_CONF[3], '#eb6834'], ['조금(2)', MINSU_CONF[2], '#f4a582', true], ['전혀(1)', MINSU_CONF[1], '#f9d3bf', true]]);
+$('nc').textContent = `(자신감을 고른 ${nc}명)`;
+$('n6').textContent = `(응답 ${stack('st6', [['원이 아니다(정답)', S6.no, 'var(--jiyeon)'], ['원이다', S6.yes, 'var(--minsu)'], ['모르겠다', S6.unsure, 'var(--neither)', true]])}명)`;
+$('n7').textContent = `(응답 ${stack('st7', [['민수', S7.minsu, 'var(--minsu)'], ['지연', S7.jiyeon, 'var(--jiyeon)'], ['둘 다 아님', S7.neither, 'var(--neither)', true]])}명)`;
+
+// 숫자 카드
+$('k-minsu').textContent = `${Math.round(pct(S0.minsu, sum(S0)))}%`;
+$('k-sure').textContent = `${Math.round(pct(MINSU_CONF[4], nc))}%`;
+$('k-jiyeon').textContent = `${Math.round(pct(S0.jiyeon, sum(S0)))}%`;
+const both = TR.reduce((a, t) => a + t[1], 0);
+const preOk = TR.filter((t) => t[0].startsWith('지연')).reduce((a, t) => a + t[1], 0);
+const postOk = TR.filter((t) => t[0].endsWith('지연')).reduce((a, t) => a + t[1], 0);
+const fromMinsu = TR.filter((t) => t[0].startsWith('민수')).reduce((a, t) => a + t[1], 0);
+$('k-pre').textContent = `${Math.round(pct(preOk, both))}%`;
+$('k-post').textContent = `${Math.round(pct(postOk, both))}%`;
+$('k-move').textContent = `${Math.round(pct(23, fromMinsu))}%`;
+document.querySelectorAll('#k-pre,#k-post').forEach((e) => (e.nextElementSibling.textContent += ` · ${both}명`));
+$('k-move').nextElementSibling.textContent += ` · ${23}/${fromMinsu}명`;
+const TAG = { good: ['t-good', '정답'], stay: ['t-stay', '오개념 유지'], other: ['t-other', '기타'] };
+$('flow').innerHTML = TR.slice(0, 3).map(([l, v, k]) => `<div class="fl" title="${l} ${v}명 / ${both}명"><span class="tag ${TAG[k][0]}">${TAG[k][1]}</span><div>${l}</div><b>${v}명</b> <span class="note">(${Math.round(pct(v, both))}%)</span></div>`).join('')
+  + `<div class="fl"><span class="tag t-other">기타</span><div>지연 → 민수 · 민수 → 둘 다 아님 등</div><b>${TR.slice(3).reduce((a, t) => a + t[1], 0)}명</b></div>`;
+$('trT').insertAdjacentHTML('beforeend', TR.map(([l, v]) => `<tr><td>${l}</td><td class="n">${v}</td></tr>`).join(''));
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오답의 재발견 프로그램</title>
+<!-- 11/4 인하대 특강 3단계: 「오답의 재발견」 사업 취지·운영 개요·화면 소개(11/3 사용자 요청).
+     캡처 img/odap/*.jpg 는 연수용 복제판 에뮬레이터에 가짜 학생(연수01~25)과 가상 응답을 넣어 찍은 것(진단앱_연수용/test/capture_intro.mjs). 실제 학생 기록 아님. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap">
+<style>
+:root{color-scheme:light;--surface:#fcfcfb;--card:#fff;--ink:#0b0b0b;--ink2:#52514e;--muted:#8a8984;--line:#e6e5e0;
+  --mint:#2fa58e;--mint-soft:#e6f5f1;--red:#e84118;--sky:#17b5e2;--yellow:#ffc900;--blue:#2a78d6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font:16px/1.65 "Noto Sans KR","Malgun Gothic",sans-serif}
+.bar-top{height:6px;background:linear-gradient(90deg,var(--red) 0 33%,var(--sky) 33% 66%,var(--yellow) 66%)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 64px}
+.hero{background:linear-gradient(135deg,#7dcbb5,#5bb9a3);color:#fff;border-radius:0 0 24px 24px;padding:34px 28px 30px;margin:0 -16px 8px}
+.hero small{opacity:.9;font-weight:600}.hero h1{font-size:36px;margin:6px 0 6px;letter-spacing:-.5px}
+.hero p{margin:0;max-width:760px;font-size:17px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px}
+.tabs a{padding:6px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px}
+section{margin-top:34px}
+h2{font-size:24px;margin:0 0 6px}.lead{color:var(--ink2);margin:0 0 14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.box b{display:block;font-size:16.5px;margin-bottom:4px}.box p{margin:0;color:var(--ink2);font-size:15px}
+.quote{background:var(--mint-soft);border-left:5px solid var(--mint);border-radius:0 12px 12px 0;padding:12px 16px;font-size:17px;font-weight:600;margin:12px 0}
+.model{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+.model div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:14px}
+.model b{display:block;font-size:22px;color:var(--mint)}.model span{display:block;font-weight:800;font-size:15px;margin:2px 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.kpi b{display:block;font-size:22px;font-weight:800}.kpi span{color:var(--ink2);font-size:14px}
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.roles div{border-radius:12px;padding:10px 12px;background:#f3f2ee;font-size:14.5px}.roles b{display:block}
+.loop{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0}
+.loop span{background:#fff;border:1.5px solid var(--mint);color:#1f6f5f;border-radius:999px;padding:6px 14px;font-weight:700}
+.loop i{color:var(--muted);font-style:normal}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+figure button{all:unset;cursor:zoom-in;display:block;background:#f3f2ee}
+figure img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+figure img.tall{aspect-ratio:16/10;object-fit:contain;background:#eef0f6}
+figcaption{padding:10px 14px 12px;font-size:14.5px;color:var(--ink2)}figcaption b{display:block;color:var(--ink);font-size:16px}
+.who{display:inline-block;font-size:12px;font-weight:800;border-radius:999px;padding:1px 8px;margin-bottom:4px}
+.who.s{background:#e3efff;color:#1d5fb0}.who.t{background:#fde9df;color:#a2401a}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.next a{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px}
+.next a b{display:block;font-size:17px}.next a span{color:var(--ink2);font-size:14.5px}.next a:hover{border-color:var(--mint)}
+.note{font-size:13.5px;color:var(--muted);margin-top:10px}
+dialog{border:0;padding:0;border-radius:12px;max-width:min(96vw,1500px);background:#111}dialog::backdrop{background:#000c}
+dialog img{display:block;max-width:96vw;max-height:88vh}dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
+@media (max-width:860px){.grid3,.next{grid-template-columns:1fr}.model{grid-template-columns:repeat(3,1fr)}.kpis,.roles{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr}.hero h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="bar-top"></div>
+<div class="wrap">
+  <header class="hero">
+    <small>교육부 · 인천광역시교육청 · 한국과학창의재단 | 구월중학교 운영학교</small>
+    <h1>「오답의 재발견」 프로그램</h1>
+    <p>중학교 수학 학습 탄력성 강화를 위한 프로젝트 — 틀린 답을 지우는 대신, 그 답이 보여 주는 학생의 생각을 들여다보고 수업을 다시 설계해요.</p>
+  </header>
+  <nav class="tabs"><a href="#why">사업의 취지</a><a href="#plan">운영 개요</a><a href="#screens">화면으로 보기</a><a href="#more">더 보기</a></nav>
+
+  <section id="why">
+    <h2>1. 사업의 취지</h2>
+    <div class="quote">“오답은 실패가 아니라, 학생의 사고 과정과 개념 이해 상태를 보여 주는 진단 자료다.”</div>
+    <div class="grid3">
+      <div class="box"><b>왜 필요할까?</b><p>정답 중심 수업은 학생이 왜 틀렸는지, 개념의 어느 곳이 비어 있는지 드러내고 성찰할 기회가 적어요. 중1은 산술에서 추상적 수학으로 넘어가는 시기라, 쌓인 오답 경험이 수학 포기로 이어지기 쉬워요.</p></div>
+      <div class="box"><b>무엇을 바탕으로?</b><p>오답 분석(Error Analysis), 생산적 실패(Productive Failure), 교사의 진단 역량(Diagnostic Competence)의 관점을 수업에 담아요.</p></div>
+      <div class="box"><b>무엇을 바라나?</b><p>학생은 오답을 학습 자원으로 써서 개념을 다시 세우고 스스로 점검하는 힘을, 교사는 오답을 진단해 수업에 반영하는 전문성을 키워요.</p></div>
+    </div>
+    <p class="lead" style="margin-top:16px"><b>「오답의 재발견」 수업모델 6단계</b> (한국과학창의재단)</p>
+    <div class="model">
+      <div><b>1</b><span>오답 수집·예상</span>오답 가능성 탐색</div>
+      <div><b>2</b><span>오답 생성</span>학생이 오답 사례 제시</div>
+      <div><b>3</b><span>오답 분류</span>유형별로 정리</div>
+      <div><b>4</b><span>생성 규칙 분석</span>개념적 원인 분석</div>
+      <div><b>5</b><span>개념 조건 재구성</span>정답이 성립하는 조건</div>
+      <div><b>6</b><span>전이 문제 적용</span>유사·변형 문제로 확장</div>
+    </div>
+    <p class="note">수업 운영 원칙: 정답 확인이 아니라 ‘정답이 성립하는 조건’을 설명하고 개념을 재구성하는 데 초점 · 오답은 낙인이 아닌 학습 진단 자료로 · 계산 실수 교정보다 개념 구조 분석 중심</p>
+  </section>
+
+  <section id="plan">
+    <h2>2. 구월중학교 운영 개요</h2>
+    <div class="kpis">
+      <div class="kpi"><b>2026.8.~2027.1.</b><span>운영 기간 (2학기)</span></div>
+      <div class="kpi"><b>1학년 10개 반</b><span>정규 수학 수업 전 학급 적용</span></div>
+      <div class="kpi"><b>입체도형 · 회전체</b><span>적용 단원</span></div>
+      <div class="kpi"><b>수학 교사 2명</b><span>담당 · 교내 연구회로 공유</span></div>
+    </div>
+    <div class="roles">
+      <div><b>교육부</b>사업 총괄 · 특별교부금</div>
+      <div><b>인천시교육청</b>운영학교 공모·선정(인천 2교), 예산·지원</div>
+      <div><b>한국과학창의재단</b>수업자료·템플릿 개발, 연수·자문</div>
+      <div><b>구월중학교</b>수업 적용·운영, 학생 변화 확인, 결과 보고</div>
+    </div>
+    <p class="lead" style="margin-top:18px">재단 수업자료를 그대로 쓰는 데서 그치지 않고, <b>생성형 AI와 함께 학습 사이트를 직접 설계</b>해 학생 한 명 한 명의 생각이 기록되고 수업으로 이어지게 했어요.</p>
+    <div class="loop"><span>학생 생각 기록</span><i>→</i><span>오개념 진단</span><i>→</i><span>처방 수업</span><i>→</i><span>다시 진단</span><i>→</i><span>생각 변화 확인</span></div>
+    <div class="grid3">
+      <div class="box"><b>진단</b><p>준비 진단(초등 입체도형) · 사전 진단 · 사후 진단. 문항마다 답 + 이유 + 확신도(4점). 자신 있게 틀린 답을 오개념의 증거로 봐요.</p></div>
+      <div class="box"><b>수업</b><p>알지오매스로 회전체를 만드는 본차시 + 오개념을 겨냥한 1~3차시 「오답의 재발견」 수업(메뉴 [오답의 재발견]). 교사는 반 전체의 답을 실시간으로 보며 단계를 열고 마감해요.</p></div>
+      <div class="box"><b>성찰과 참여</b><p>3-Step 자가진단, AI 되묻기·피드백, 수학 일기, 질문하기, 오늘의 퀴즈·퍼즐, 참여·노력 포인트.</p></div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <h2>3. 화면으로 보기</h2>
+    <p class="lead">아래 화면은 연수용 복제판에 <b>가상 학생(연수01~25)과 가상 응답</b>을 넣어 찍은 예시예요. 누르면 크게 볼 수 있어요.</p>
+    <div class="gal" id="gal"></div>
+  </section>
+
+  <section id="more">
+    <h2>4. 더 보기</h2>
+    <div class="next">
+      <a href="odap-guide.html"><b>📖 사용 흐름</b><span>준비 진단 → 사전 진단 → 회전체 만들기 → 오답의 재발견 수업 → 사후 진단 → 마무리</span></a>
+      <a href="odap-stats.html"><b>📊 실제 기록 통계</b><span>학교 앱 기록으로 본 오개념과 1차시 수업 뒤 생각 변화(이름 없음)</span></a>
+    </div>
+  </section>
+</div>
+<dialog id="dlg"><img id="dlgImg" alt=""><p id="dlgCap"></p></dialog>
+<script>
+const SHOTS = [
+  ['s', '01-home', '학생 첫 화면', '오늘의 퀴즈·퍼즐, 진단 목록, 포인트·출석이 한 화면에. 오답 딱지 대신 “내 생각을 탐정처럼 기록”해요.'],
+  ['s', '03-diag', '진단지 — 회전체 탐정 노트', '두 친구의 주장 중 누구에게 동의하는지 + 이유 + 확신도. 그림과 함께 한 문항씩, 자동 저장돼요.'],
+  ['t', '05-teacher-map', '교사 — 반 오개념 지도와 수업 처방', '오개념별 ‘확인·의심’ 학생 비율, 가장 많이 고른 오답, 처방 수업 제안까지 한눈에.'],
+  ['t', '04-teacher-overview', '교사 — 한눈에 보기', '반마다 진단 참여, 수업 진행, 질문·일기·포인트 현황을 한 줄로.'],
+  ['s', '07-rotation-algeo3d', '회전체 만들기 — 알지오3D', '평면도형을 직접 회전시켜 회전체와 단면을 관찰하는 42쪽 웹 활동지. 쓴 답·그림은 계정에 저장.'],
+  ['t', '08-rotation-teacher', '교사 — 회전체 쪽별 모니터링', '지금 이 쪽에서 반 전체가 쓴 글·그림·알지오3D 화면을 카드로. 불러오기·잠금·마감·📢 공유.'],
+  ['s', '09-rotation-share', '📢 잘 쓴 답 함께 보기', '교사가 고른 친구들의 답이 반 학생 모두의 화면에 떠요.'],
+  ['s', '10-live-student', '오답의 재발견 수업 — 학생', '1차시 「무엇이 맞을까?」 민수 vs 지연. 교사가 단계를 열면 하나씩 나타나요.'],
+  ['t', '11-live-teacher', '교사 — 오답의 재발견 수업 현황', '단계 열기·모으기·고정·마감, 학생별 선택과 이유, 선택 분포가 실시간으로.'],
+  ['t', '12-lesson-guide', '교사 — 수업 준비', '단계별 정답·예상 오답·발문·유의점과 제안 시간. 학생 화면을 직접 해 볼 수도 있어요.'],
+  ['t', '06-teacher-change', '교사 — 사전·사후 변화', '오개념마다 해소·지속·새로 생김. 처방 수업의 효과를 확인해요.'],
+  ['s', '02-home-change', '학생 — 내 생각의 변화', '수업 전과 후, 같은 개념을 다른 문제로 물은 내 답을 나란히 봐요.'],
+];
+document.getElementById('gal').innerHTML = SHOTS.map(([w, f, t, d]) => `<figure><button type="button" data-f="${f}" data-t="${t}"><img src="img/odap/${f}.jpg" alt="${t} 화면" loading="lazy" class="${f.startsWith('10') ? 'tall' : ''}"></button>
+  <figcaption><span class="who ${w}">${w === 's' ? '학생' : '교사'}</span><b>${t}</b>${d}</figcaption></figure>`).join('');
+const dlg = document.getElementById('dlg');
+document.getElementById('gal').addEventListener('click', (e) => { const b = e.target.closest('[data-f]'); if (!b) return;
+  document.getElementById('dlgImg').src = `img/odap/${b.dataset.f}.jpg`; document.getElementById('dlgCap').textContent = b.dataset.t + ' (가상 데이터 예시 · 바깥을 누르면 닫혀요)'; dlg.showModal(); });
+dlg.addEventListener('click', () => dlg.close());
+</script>
+</body>
+</html>
