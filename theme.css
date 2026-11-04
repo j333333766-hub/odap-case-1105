@@ -93,4 +93,5 @@ nav.flow, nav.toc { background: rgba(255,255,255,.94); }
 
 /* 아래 바닥글 */
 .site-foot { border-top: 1px solid var(--c-line); margin-top: 48px; padding: 24px 16px 40px; text-align: center; color: var(--c-ink-3); font-size: 13.5px; }
-.site-foot a { color: var(--c-ink-2); font-weight: 700; }
+.site-foot a { color: var(--c-ink-2); font-weight: 700; display: inline-block; padding: 9px 16px; margin: 0 4px 8px 0; border: 1px solid var(--c-line); border-radius: 999px; background: #fff; text-decoration: none; }
+.site-foot a:hover { border-color: var(--c-brand); color: var(--c-brand-deep); }
