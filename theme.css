@@ -7,6 +7,8 @@
   font-weight: 400; font-style: normal; font-display: swap;
 }
 
+/* 휴대폰 다크 모드에서 브라우저가 색을 억지로 뒤집지 않게(밝은 화면 그대로) */
+:root { color-scheme: only light; }
 :root {
   /* 학습 사이트 토큰 */
   --c-brand: #7DCBB5; --c-brand-deep: #4FAE97; --c-brand-tint: #D6ECE7; --c-band-bg: #EAF6F2;
