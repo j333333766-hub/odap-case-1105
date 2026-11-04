@@ -87,6 +87,11 @@ window.DATA = {
   "neither": 3,
   "sure": 59
  },
+ "compare": {
+  "n": 93,
+  "before": { "minsu": 58, "jiyeon": 40, "neither": 2 },
+  "after": { "minsu": 27, "jiyeon": 69, "neither": 4 }
+ },
  "changeLead": "반례(꼭짓점 하나만 축에 닿은 직각삼각형을 돌려 생긴, 가운데가 빈 단면)를 만난 뒤 수업 끝에 같은 질문으로 다시 생각했어요.",
  "change": [
   {

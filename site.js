@@ -39,6 +39,11 @@ $('#gal-qr').innerHTML = '<img src="img/gallery-qr.svg" alt="갤러리 QR 코드
 const D = window.DATA;
 if (D) $('#data').innerHTML = renderData(D);
 
+// 민수·지연·둘 다 아님 가로 막대(처음 생각·다시 생각이 같은 모양·순서라야 눈으로 비교된다)
+function stack(o) {
+  const seg = (w, col, txt) => `<div class="seg" style="width:${w}%;background:var(${col})">${txt}</div>`;
+  return `<div class="stack">${seg(o.minsu, '--minsu', o.minsu >= 12 ? `민수 ${o.minsu}%` : '')}${seg(o.jiyeon, '--jiyeon', o.jiyeon >= 12 ? `지연 ${o.jiyeon}%` : '')}${seg(o.neither, '--neither', o.neither >= 6 ? o.neither + '%' : '')}</div>`;
+}
 function bar(segs) { return `<div class="track">${segs.map(([p, c]) => `<div class="seg" style="width:${p}%;background:${c}"></div>`).join('')}</div>`; }
 
 function renderData(D) {
@@ -60,12 +65,21 @@ function renderData(D) {
       <div class="vs"><div class="a"><b>민수</b>“회전체를 회전축에 수직인 평면으로 자를 때 생기는 단면은 원 모양이야.”</div><div class="b"><b>지연 (정답)</b>“회전체를 회전축에 수직인 평면으로 자를 때 생기는 단면은 원 모양이 아닐 수도 있어.”</div></div>
       <div class="legend"><span><i style="background:var(--minsu)"></i>민수</span><span><i style="background:var(--jiyeon)"></i>지연(정답)</span><span><i style="background:var(--neither)"></i>둘 다 아님</span></div>
       <div class="rowlab">처음 생각 <small>${esc(f.n)}명</small></div>
-      <div class="stack"><div class="seg" style="width:${f.minsu}%;background:var(--minsu)">민수 ${f.minsu}%</div><div class="seg" style="width:${f.jiyeon}%;background:var(--jiyeon)">지연 ${f.jiyeon}%</div><div class="seg" style="width:${f.neither}%;background:var(--neither)">${f.neither >= 6 ? f.neither + '%' : ''}</div></div>
+      ${stack(f)}
       ${f.sure != null ? `<p class="lead" style="margin-top:8px">민수를 고른 학생 중 <b>${f.sure}%</b>가 ‘매우 자신 있음’(4점) → 오답이 몰라서 찍은 답이 아니라 <b>자신 있게 믿는 생각</b>이에요. 그래서 반례를 직접 보게 하는 처방 수업이 필요했어요.</p>` : ''}`;
   }
 
   if (D.change?.length) {
+    const c = D.compare;
     h += `<h3>③ 반례를 만난 뒤: 생각이 바뀌었나?</h3>${D.changeLead ? `<p class="lead">${esc(D.changeLead)}</p>` : ''}
+      ${c ? `<div class="cmp">
+        <div class="legend"><span><i style="background:var(--minsu)"></i>민수</span><span><i style="background:var(--jiyeon)"></i>지연(정답)</span><span><i style="background:var(--neither)"></i>둘 다 아님</span><span class="cmp-n">두 번 모두 답한 같은 ${esc(c.n)}명</span></div>
+        <div class="rowlab">처음 생각 <small>수업 시작</small></div>
+        ${stack(c.before)}
+        <div class="cmp-arrow">↓ 반례를 만난 뒤 <b>지연 ${c.before.jiyeon}% → ${c.after.jiyeon}%</b> · 민수 ${c.before.minsu}% → ${c.after.minsu}%</div>
+        <div class="rowlab">다시 생각 <small>수업 끝</small></div>
+        ${stack(c.after)}
+      </div>` : ''}
       <div class="change">${D.change.map((c) => `<div class="kpi"><b>${esc(c.v)}</b><span>${esc(c.l)}</span></div>`).join('')}</div>`;
   }
 
