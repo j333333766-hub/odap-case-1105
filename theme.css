@@ -1,0 +1,86 @@
+/* 공통 디자인 — 학교 학습 사이트(odap-rediscovery) 「오답의 재발견」과 같은 색·서체·모양
+   (11/5 사용자: "사이트 디자인을 오답의 재발견 사이트(우리 학교 학습 사이트)와 같은 디자인으로")
+   각 쪽의 <style> 뒤에 불러와 같은 이름의 색 변수를 학습 사이트 색으로 바꾸고, 머리줄·히어로·제목 글꼴을 맞춘다. */
+@font-face {
+  font-family: "Jalnan Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* 학습 사이트 토큰 */
+  --c-brand: #7DCBB5; --c-brand-deep: #4FAE97; --c-brand-tint: #D6ECE7; --c-band-bg: #EAF6F2;
+  --c-accent: #D9584F; --c-accent-deep: #C04941;
+  --c-sky: #E9F2FA; --c-butter: #F6EFD9; --c-periwinkle: #B8BAE6;
+  --c-navy: #3B55A0; --c-navy-soft: #7F95DE; --c-track: #EEF1F8;
+  --c-ink: #1B1F2A; --c-ink-2: #4A4F5C; --c-ink-3: #8A8F9C; --c-line: #E6E8EE; --c-row: #F3F3F4;
+  --f-display: "Jalnan Gothic", "Pretendard Variable", Pretendard, sans-serif;
+  --f-body: "Pretendard Variable", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  /* 각 쪽에서 쓰던 이름 → 학습 사이트 색 */
+  --bg: #FFFFFF; --surface: #FFFFFF; --card: #FFFFFF;
+  --ink: var(--c-ink); --ink2: var(--c-ink-2); --muted: var(--c-ink-3); --line: var(--c-line);
+  --red: var(--c-accent); --sky: #4A90C8; --yellow: #F2C14E; --blue: var(--c-navy);
+  --mint: var(--c-brand-deep); --mint-soft: var(--c-band-bg);
+  --stu: var(--c-navy); --stu-soft: var(--c-sky); --tea: var(--c-accent); --tea-soft: #FDECEA;
+  --minsu: var(--c-accent); --jiyeon: var(--c-navy); --neither: #A9ADB8;
+  --seq-1: var(--c-navy); --seq-2: var(--c-navy-soft);
+  --accent: var(--c-accent);
+  --red-soft: #FDECEA; --blue-soft: var(--c-sky); --yellow-soft: var(--c-butter);
+}
+
+body { font-family: var(--f-body); background: #FFFFFF; color: var(--c-ink-2); word-break: keep-all; }
+h1, h2 { font-family: var(--f-display); font-weight: 400; color: var(--c-ink); letter-spacing: -.01em; }
+h3 { color: var(--c-ink); }
+
+/* 예전 세 가지 색 띠는 쓰지 않음 */
+.bar, .bar-top { display: none !important; }
+
+/* ===== 머리줄 (학습 사이트와 같은 모양) ===== */
+.site-header { background: #fff; border-bottom: 1px solid var(--c-line); }
+.site-header__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.site-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+.site-school { font-weight: 800; font-size: 15px; color: var(--c-ink-2); background: var(--c-row); border-radius: 999px; padding: 4px 12px; white-space: nowrap; font-family: var(--f-body); }
+.site-title { font-family: var(--f-display); font-size: 20px; color: var(--c-brand-deep); white-space: nowrap; border-bottom: 2px solid var(--c-brand); padding-bottom: 2px; }
+.site-tag { font-size: 14px; font-weight: 700; color: var(--c-ink-3); white-space: nowrap; }
+.site-nav { display: flex; align-items: center; gap: 4px 6px; flex-wrap: wrap; font-weight: 700; font-size: 16px; color: var(--c-ink); }
+.site-nav a { text-decoration: none; color: inherit; padding: 6px 4px; border-bottom: 2px solid transparent; white-space: nowrap; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--c-brand-deep); border-color: var(--c-brand); }
+.site-nav .dot { color: var(--c-ink-3); font-weight: 400; }
+@media (max-width: 760px) {
+  .site-header__inner { padding: 10px 16px; }
+  .site-tag { display: none; }
+  .site-nav { font-size: 15px; }
+}
+
+/* ===== 민트 히어로 (학습 사이트 첫 화면 띠) ===== */
+.app-hero { position: relative; overflow: hidden; background: var(--c-brand); border-radius: 16px; color: #fff; padding: 44px 40px 40px; margin: 24px 0 8px; }
+.app-hero .glyph { position: absolute; font-family: var(--f-display); color: rgba(255,255,255,.28); user-select: none; pointer-events: none; line-height: 1; }
+.app-hero .g1 { left: 5%; top: 10%; font-size: 96px; transform: rotate(-12deg); }
+.app-hero .g2 { left: 24%; bottom: 4%; font-size: 72px; transform: rotate(8deg); }
+.app-hero .g3 { right: 30%; top: 6%; font-size: 64px; transform: rotate(10deg); }
+.app-hero .g4 { right: 4%; bottom: 2%; font-size: 88px; transform: rotate(-8deg); }
+.app-hero .g5 { left: 52%; bottom: 10%; font-size: 48px; }
+/* 글자 장식(glyph)보다 내용이 위에 오게. QR 카드처럼 따로 자리 잡은 것은 건드리지 않음 */
+.app-hero > :not(.glyph):not(.siteqr) { position: relative; }
+.app-hero h1 { font-family: var(--f-display); font-weight: 400; color: #fff; text-shadow: 0 3px 0 rgba(59,85,160,.35); letter-spacing: -.01em; line-height: 1.22; margin: 10px 0 12px; }
+.app-hero h1 em { font-style: normal; background: none; color: #FFF6C9; }
+.app-hero p, .app-hero .sub, .app-hero .lead { color: #fff; opacity: .97; }
+.app-hero .kicker, .app-hero small.kick { display: inline-block; background: rgba(255,255,255,.92); color: var(--c-brand-deep); font-weight: 800; font-size: 14px; border-radius: 999px; padding: 4px 14px; }
+@media (max-width: 680px) { .app-hero { padding: 28px 20px 24px; border-radius: 14px; } .app-hero .glyph { display: none; } }
+
+/* 위에 붙는 차례 띠는 흰 바탕 */
+nav.flow, nav.toc { background: rgba(255,255,255,.94); }
+/* 사용 흐름 쪽: 히어로 안 강조 글씨 */
+.app-hero .lead b { color: #fff; background: none; }
+.app-hero .legend { color: #fff; }
+
+/* 버튼: 학습 사이트처럼 코랄 강조·네모 반듯 */
+.btn-accent { display: inline-flex; align-items: center; gap: 6px; background: var(--c-accent); color: #fff !important; font-weight: 800; text-decoration: none; border-radius: 10px; padding: 9px 16px; border: 0; }
+.btn-accent:hover { background: var(--c-accent-deep); }
+.btn-ghost-w { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.95); color: var(--c-ink) !important; font-weight: 800; text-decoration: none; border-radius: 10px; padding: 8px 14px; }
+.btn-ghost-w:hover { background: #fff; color: var(--c-brand-deep) !important; }
+
+/* 아래 바닥글 */
+.site-foot { border-top: 1px solid var(--c-line); margin-top: 48px; padding: 24px 16px 40px; text-align: center; color: var(--c-ink-3); font-size: 13.5px; }
+.site-foot a { color: var(--c-ink-2); font-weight: 700; }

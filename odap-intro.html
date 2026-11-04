@@ -52,12 +52,14 @@ dialog{border:0;padding:0;border-radius:12px;max-width:min(96vw,1500px);backgrou
 dialog img{display:block;max-width:96vw;max-height:88vh}dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
 @media (max-width:860px){.grid3,.next{grid-template-columns:1fr}.model{grid-template-columns:repeat(3,1fr)}.kpis,.roles{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr}.hero h1{font-size:28px}}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="bar-top"></div>
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="index.html" title="사례 발표 첫 화면으로"><span class="site-school">구월중 수학</span><span class="site-title">오답의 재발견</span><span class="site-tag">수업 사례 나눔</span></a><nav class="site-nav" aria-label="사이트 메뉴"><a href="index.html">사례 발표</a><span class="dot">·</span><a href="odap-intro.html" aria-current="page">프로그램 소개</a><span class="dot">·</span><a href="odap-guide.html">사용 흐름</a><span class="dot">·</span><a href="odap-stats.html">학생 데이터</a><span class="dot">·</span><a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">작품 갤러리 ↗</a></nav></div></header>
 <div class="wrap">
-  <header class="hero">
-    <small>교육부 · 인천광역시교육청 · 한국과학창의재단 | 구월중학교 운영학교</small>
+  <header class="hero app-hero">
+    <span class="glyph g1">π</span><span class="glyph g2">△</span><span class="glyph g3">=</span><span class="glyph g4">Σ</span><span class="glyph g5">&lt;</span>
+    <small class="kick">교육부 · 인천광역시교육청 · 한국과학창의재단 | 구월중학교 운영학교</small>
     <h1>「오답의 재발견」 프로그램</h1>
     <p>중학교 수학 학습 탄력성 강화를 위한 프로젝트 — 틀린 답을 지우는 대신, 그 답이 보여 주는 학생의 생각을 들여다보고 수업을 다시 설계해요.</p>
   </header>
@@ -143,5 +145,6 @@ document.getElementById('gal').addEventListener('click', (e) => { const b = e.ta
   document.getElementById('dlgImg').src = `img/odap/${b.dataset.f}.jpg`; document.getElementById('dlgCap').textContent = b.dataset.t + ' (가상 데이터 예시 · 바깥을 누르면 닫혀요)'; dlg.showModal(); });
 dlg.addEventListener('click', () => dlg.close());
 </script>
+<footer class="site-foot"><a href="index.html">← 사례 발표 첫 화면으로</a> · 「오답의 재발견」 프로젝트 · 구월중학교 1학년</footer>
 </body>
 </html>

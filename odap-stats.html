@@ -50,13 +50,17 @@ table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}th,td{bo
 [title]{cursor:default}
 @media (max-width:640px){.hrow{grid-template-columns:1fr 64px}.hrow .track{grid-column:1/-1;grid-row:2}.quote{grid-template-columns:1fr}h1{font-size:23px}}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="bar-top"></div>
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="index.html" title="사례 발표 첫 화면으로"><span class="site-school">구월중 수학</span><span class="site-title">오답의 재발견</span><span class="site-tag">수업 사례 나눔</span></a><nav class="site-nav" aria-label="사이트 메뉴"><a href="index.html">사례 발표</a><span class="dot">·</span><a href="odap-intro.html">프로그램 소개</a><span class="dot">·</span><a href="odap-guide.html">사용 흐름</a><span class="dot">·</span><a href="odap-stats.html" aria-current="page">학생 데이터</a><span class="dot">·</span><a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">작품 갤러리 ↗</a></nav></div></header>
 <div class="wrap">
-  <p class="sub" style="margin:0">「오답의 재발견」 프로젝트 · 구월중학교 1학년 · 입체도형(회전체)</p>
-  <h1>학생 오개념 분석과 수업 뒤 변화</h1>
-  <p class="sub">학습 앱 기록 집계 · 2026. 11. 5. 기준 · 1학년 6~10반 · 이름 없이 숫자만</p>
+  <header class="app-hero">
+    <span class="glyph g1">π</span><span class="glyph g2">△</span><span class="glyph g3">=</span><span class="glyph g4">Σ</span><span class="glyph g5">&lt;</span>
+    <span class="kicker">「오답의 재발견」 프로젝트 · 구월중학교 1학년 · 입체도형(회전체)</span>
+    <h1>학생 오개념 분석과 수업 뒤 변화</h1>
+    <p class="sub" style="margin:0">학습 앱 기록 집계 · 2026. 11. 5. 기준 · 1학년 6~10반 · 이름 없이 숫자만</p>
+  </header>
 
   <!-- 1. 사전 진단 -->
   <section class="card">
@@ -189,5 +193,6 @@ $('flow').innerHTML = TR.slice(0, 3).map(([l, v, k]) => `<div class="fl" title="
   + `<div class="fl"><span class="tag t-other">기타</span><div>지연 → 민수 · 민수 → 둘 다 아님 등</div><b>${TR.slice(3).reduce((a, t) => a + t[1], 0)}명</b></div>`;
 $('trT').insertAdjacentHTML('beforeend', TR.map(([l, v]) => `<tr><td>${l}</td><td class="n">${v}</td></tr>`).join(''));
 </script>
+<footer class="site-foot"><a href="index.html">← 사례 발표 첫 화면으로</a> · 「오답의 재발견」 프로젝트 · 구월중학교 1학년</footer>
 </body>
 </html>

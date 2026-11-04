@@ -55,8 +55,8 @@ function renderData(D) {
     const p = D.pre;
     h += `<h3>① 수업 전: 사전 진단으로 본 오개념 <span style="font-size:14px;color:var(--muted);font-weight:600">${esc(p.n)}명 제출</span></h3>
       <p class="lead">${esc(p.lead)}</p>
-      <div class="legend"><span><i style="background:#2a78d6"></i>확인(증거 2개 이상)</span><span><i style="background:#a9c8f0"></i>의심(증거 1개)</span></div>
-      ${p.rows.map((r) => `<div class="hrow"><div class="lab">${esc(r.name)}<small>${esc(r.code)}</small></div>${bar([[r.confirm, '#2a78d6'], [r.suspect, '#a9c8f0']])}<div class="val">${pct(r.confirm + r.suspect)}</div></div>`).join('')}`;
+      <div class="legend"><span><i style="background:var(--seq-1)"></i>확인(증거 2개 이상)</span><span><i style="background:var(--seq-2)"></i>의심(증거 1개)</span></div>
+      ${p.rows.map((r) => `<div class="hrow"><div class="lab">${esc(r.name)}<small>${esc(r.code)}</small></div>${bar([[r.confirm, 'var(--seq-1)'], [r.suspect, 'var(--seq-2)']])}<div class="val">${pct(r.confirm + r.suspect)}</div></div>`).join('')}`;
   }
 
   if (D.first) {
@@ -93,6 +93,6 @@ function renderData(D) {
   }
 
   if (D.caveats?.length) h += `<div class="caveat">⚠️ 읽을 때 주의: ${D.caveats.map(esc).join(' ')}</div>`;
-  h += `<div class="more"><a href="odap-stats.html" target="_blank" rel="noopener">학생 데이터 자세히 ↗</a><a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">학생 회전체 작품 갤러리 ↗</a></div>`;
+  h += `<div class="more"><a href="odap-stats.html">학생 데이터 자세히 →</a><a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">학생 회전체 작품 갤러리 ↗</a></div>`;
   return h;
 }

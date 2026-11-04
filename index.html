@@ -19,25 +19,21 @@ img{max-width:100%}
 .bar{height:6px;background:linear-gradient(90deg,var(--red) 0 33.4%,var(--sky) 33.4% 66.7%,var(--yellow) 66.7%)}
 .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
 
-/* 머리 */
-.hero{padding:40px 0 26px}
-.kicker{display:inline-block;font-size:14px;font-weight:800;color:var(--red);background:#fff0eb;border-radius:99px;padding:4px 14px}
-.hero h1{font-size:clamp(32px,5.4vw,56px);letter-spacing:-1.5px;line-height:1.18;margin:14px 0 10px}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--yellow) 62%)}
-.hero .sub{font-size:clamp(16px,2vw,19px);color:var(--ink2);margin:0}
-.hero .who{display:flex;align-items:center;gap:10px;margin-top:18px;font-weight:700}
-.hero .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px #0002}
-.hero{position:relative}
-.siteqr{position:absolute;right:18px;top:40px;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 10px 8px;width:168px;text-align:center;font-size:13px;font-weight:700;color:var(--ink2)}
-.siteqr img{width:140px;height:140px;display:block}
+/* 머리: 민트 히어로(theme.css .app-hero) + 오른쪽 QR */
+.hero{padding-right:230px}
+.hero h1{font-size:clamp(32px,5vw,52px)}
+.hero .sub{font-size:clamp(16px,2vw,19px);margin:0}
+.hero .who{display:flex;align-items:center;gap:10px;margin-top:20px;font-weight:800;flex-wrap:wrap}
+.hero .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 2px 8px #0002;background:#fff}
+.siteqr{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;background:#fff;border-radius:16px;padding:10px 10px 8px;width:176px;text-align:center;font-size:13px;font-weight:700;color:var(--ink2);box-shadow:0 6px 20px rgba(27,31,42,.12)}
+.siteqr img{width:148px;height:148px;display:block}
 .siteqr b{display:block;font-size:12px;color:var(--ink);word-break:break-all}
-@media (max-width:860px){.siteqr{position:static;flex-direction:row;width:auto;margin-bottom:14px;text-align:left}.siteqr img{width:72px;height:72px}}
-.hero .who a{font-size:14px;font-weight:700;color:var(--ink2)}
+@media (max-width:860px){.hero{padding-right:20px}.siteqr{position:static;transform:none;flex-direction:row;width:auto;margin-bottom:14px;text-align:left;display:inline-flex}.siteqr img{width:72px;height:72px}}
 
 /* 차례(40분) */
-nav.toc{position:sticky;top:0;z-index:20;background:#f7f6f2ee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc{position:sticky;top:0;z-index:20;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 nav.toc ol{list-style:none;margin:0 auto;padding:8px 18px;max-width:1140px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-nav.toc a{display:flex;gap:8px;align-items:center;text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:6px 10px;height:100%}
+nav.toc a{display:flex;gap:8px;align-items:center;text-decoration:none;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:6px 10px;height:100%}
 nav.toc a:hover,nav.toc a.on{border-color:var(--c)}
 nav.toc a.on{background:var(--soft)}
 nav.toc .n{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-weight:800;font-size:14px}
@@ -45,11 +41,11 @@ nav.toc .t{font-weight:800;font-size:14px;line-height:1.25}
 nav.toc .t small{display:block;font-weight:600;color:var(--muted);font-size:12px}
 
 /* 마당 */
-section.part{background:var(--card);border:1px solid var(--line);border-radius:24px;margin:28px 0;overflow:hidden}
+section.part{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:28px 0;overflow:hidden}
 .p-head{display:flex;align-items:center;gap:16px;padding:22px 26px;background:linear-gradient(90deg,var(--soft),#fff 75%);border-bottom:1px solid var(--line);flex-wrap:wrap}
-.p-head .no{flex:none;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:27px;font-weight:900}
+.p-head .no{flex:none;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:27px;font-family:var(--f-display)}
 .p-head h2{margin:0;font-size:clamp(23px,3vw,30px);letter-spacing:-.6px;line-height:1.3}
-.p-head h2 small{display:block;font-size:15.5px;font-weight:600;color:var(--ink2);letter-spacing:0}
+.p-head h2 small{display:block;font-family:var(--f-body);font-size:15.5px;font-weight:600;color:var(--ink2);letter-spacing:0}
 .p-head .min{margin-left:auto;font-size:14px;font-weight:800;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 14px}
 .p-body{padding:22px 26px 26px}
 h3{font-size:20px;margin:26px 0 8px;letter-spacing:-.3px}
@@ -58,12 +54,12 @@ h3:first-child{margin-top:0}
 .quote{background:var(--mint-soft);border-left:6px solid var(--mint);border-radius:0 14px 14px 0;padding:14px 20px;font-size:clamp(18px,2.4vw,23px);font-weight:700;margin:0 0 18px;line-height:1.5}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.box{background:#fbfaf7;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.box{background:#F7F8FA;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
 .box b{display:block;font-size:17.5px;margin-bottom:4px}
 .box p{margin:0;color:var(--ink2);font-size:15.5px}
 .model{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
 .model div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center;font-size:14px;color:var(--ink2)}
-.model b{display:block;font-size:24px;color:var(--mint);line-height:1.2}
+.model b{display:block;font-size:24px;color:var(--mint);line-height:1.2;font-family:var(--f-display);font-weight:400}
 .model span{display:block;font-weight:800;font-size:15.5px;color:var(--ink);margin:2px 0}
 .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
 .kpi b{display:block;font-size:clamp(24px,3vw,32px);font-weight:900;line-height:1.15;letter-spacing:-.5px}
@@ -89,18 +85,18 @@ h3:first-child{margin-top:0}
 .fl ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink2)}
 .fl li{margin:2px 0}
 .tag{display:inline-block;font-size:12.5px;font-weight:800;border-radius:99px;padding:1px 9px;margin-right:4px;vertical-align:1px}
-.tag.s{background:var(--stu-soft);color:#1d5fb0}.tag.t{background:var(--tea-soft);color:#a2401a}
+.tag.s{background:var(--stu-soft);color:#3B55A0}.tag.t{background:var(--tea-soft);color:#C04941}
 .key{margin-top:18px;display:flex;gap:12px;align-items:flex-start;background:#fffbe8;border:1px solid #f6dd7c;border-radius:16px;padding:13px 16px;font-size:16px}
 .key .ic{font-size:22px;line-height:1.3}
 
 /* 4 학생 데이터 */
-.basis{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--ink2);background:#f3f2ee;border-radius:12px;padding:9px 14px;margin:0 0 16px}
+.basis{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--ink2);background:var(--c-row);border-radius:12px;padding:9px 14px;margin:0 0 16px}
 .basis b{color:var(--ink)}
 .hrow{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) 58px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid #f1f0ec}
 .hrow:last-child{border-bottom:0}
 .hrow .lab{font-size:15.5px;line-height:1.4}.hrow .lab small{display:block;color:var(--muted);font-size:12.5px}
 .hrow .val{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
-.track{height:20px;background:#f3f2ee;border-radius:5px;display:flex;gap:2px;overflow:hidden}
+.track{height:20px;background:var(--c-track);border-radius:5px;display:flex;gap:2px;overflow:hidden}
 .seg{height:100%;border-radius:4px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--ink2);margin:4px 0 8px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
@@ -109,14 +105,14 @@ h3:first-child{margin-top:0}
 .rowlab{font-weight:800;margin-top:14px;font-size:15.5px}.rowlab small{color:var(--muted);font-weight:500}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 10px}
 .vs div{border-radius:14px;padding:12px 15px;font-size:16px}
-.vs .a{background:#fdf0ea}.vs .b{background:#eaf2fc}.vs b{display:block}
+.vs .a{background:#FDECEA}.vs .b{background:var(--c-sky)}.vs b{display:block}
 .cmp{background:var(--card,#fff);border:1px solid var(--line,#e6e4dc);border-radius:12px;padding:12px 16px 14px;margin-top:10px}
 .cmp .rowlab:first-of-type{margin-top:4px}
 .cmp-n{margin-left:auto;color:var(--muted);font-weight:600}
 .cmp-arrow{margin:10px 0 0;font-size:15px;color:var(--ink2)}.cmp-arrow b{color:var(--jiyeon)}
 .change{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
 .voices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.voice{background:#fbfaf7;border:1px solid var(--line);border-radius:16px;padding:14px 16px;position:relative}
+.voice{background:#F7F8FA;border:1px solid var(--line);border-radius:16px;padding:14px 16px;position:relative}
 .voice .ctx{font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:6px}
 .voice p{margin:0;font-size:16.5px;line-height:1.6}
 .voice p+p{margin-top:8px}
@@ -135,13 +131,13 @@ h3:first-child{margin-top:0}
 .step b{display:block;font-size:18px}
 .step p{margin:2px 0 0;color:var(--ink2);font-size:15.5px}
 .step .tool{font-size:13px;font-weight:800;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:15.5px;text-decoration:none;color:#fff;background:var(--c);border-radius:12px;padding:10px 16px;white-space:nowrap;box-shadow:0 3px 0 #0002}
-.btn:hover{filter:brightness(1.06)}
+.btn{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:15.5px;text-decoration:none;color:#fff;background:var(--c-accent);border-radius:10px;padding:10px 16px;white-space:nowrap}
+.btn:hover{background:var(--c-accent-deep)}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
 .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-.tips div{background:#fbfaf7;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;color:var(--ink2)}
+.tips div{background:#F7F8FA;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;color:var(--ink2)}
 .tips b{display:block;color:var(--ink);font-size:16px}
-.galbox{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-top:18px;background:#f1f7ff;border:1.5px solid #cfe0f6;border-radius:18px;padding:16px 18px}
+.galbox{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-top:18px;background:var(--c-band-bg);border:1.5px solid var(--c-brand-tint);border-radius:18px;padding:16px 18px}
 .galbox .qr{width:132px;background:#fff;border-radius:12px;padding:8px}
 .galbox .qr svg{display:block;width:100%;height:auto}
 .galbox b{font-size:19px}
@@ -164,12 +160,12 @@ dialog img{display:block;max-width:96vw;max-height:86vh}
 dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
 
 /* 마당 색 */
-#p1,.c1{--c:#e84118;--soft:#fff0eb}
-#p2,.c2{--c:#e0a100;--soft:#fff7d6}
-#p3,.c3{--c:#17a2c9;--soft:#e4f6fc}
-#p4,.c4{--c:#2a78d6;--soft:#eaf2fc}
-#p5,.c5{--c:#2fa58e;--soft:#e6f5f1}
-#p6,.c6{--c:#8a5cd0;--soft:#f2ecfb}
+#p1,.c1{--c:#D9584F;--soft:#FDECEA}
+#p2,.c2{--c:#C9962A;--soft:#F6EFD9}
+#p3,.c3{--c:#4A90C8;--soft:#E9F2FA}
+#p4,.c4{--c:#3B55A0;--soft:#EEF1F8}
+#p5,.c5{--c:#4FAE97;--soft:#EAF6F2}
+#p6,.c6{--c:#7173C9;--soft:#EFEFFA}
 
 @media (max-width:980px){
   nav.toc ol{grid-template-columns:repeat(3,1fr)}
@@ -192,17 +188,21 @@ dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
 }
 @media print{nav.toc{position:static}section.part{break-inside:avoid-page}}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="bar"></div>
+<header class="site-header"><div class="site-header__inner"><a class="site-brand" href="index.html" title="사례 발표 첫 화면으로"><span class="site-school">구월중 수학</span><span class="site-title">오답의 재발견</span><span class="site-tag">수업 사례 나눔</span></a><nav class="site-nav" aria-label="사이트 메뉴"><a href="index.html" aria-current="page">사례 발표</a><span class="dot">·</span><a href="odap-intro.html">프로그램 소개</a><span class="dot">·</span><a href="odap-guide.html">사용 흐름</a><span class="dot">·</span><a href="odap-stats.html">학생 데이터</a><span class="dot">·</span><a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">작품 갤러리 ↗</a></nav></div></header>
 
-<header class="wrap hero">
+<div class="wrap">
+<header class="hero app-hero">
+  <span class="glyph g1">π</span><span class="glyph g2">△</span><span class="glyph g3">=</span><span class="glyph g4">Σ</span><span class="glyph g5">&lt;</span>
   <a class="siteqr" href="img/site-qr.svg" target="_blank" rel="noopener" title="이 사이트를 내 기기에서 열기"><img src="img/site-qr.svg" alt="이 사이트 QR 코드"><span>내 기기로 열기<b id="short">han.gl/오답의재발견사례</b></span></a>
   <span class="kicker">2026 수학교사 전문적학습공동체 · 수업 사례 나눔</span>
   <h1>오답을 지우지 않고,<br><em>생각을 읽는 수업</em></h1>
   <p class="sub">「오답의 재발견」 프로젝트 — 구월중학교 1학년 입체도형(회전체) 수업 사례 · 2026. 11. 5.(목)</p>
-  <div class="who"><img src="img/instructor-face.png" alt=""><span>구월중학교 조창현</span><a href="instructor.html" target="_blank" rel="noopener">발표자 소개 ↗</a></div>
+  <div class="who"><img src="img/instructor-face.png" alt=""><span>구월중학교 조창현</span><a class="btn-ghost-w" href="instructor.html">발표자 소개 →</a></div>
 </header>
+</div>
 
 <nav class="toc" aria-label="차례">
   <ol>
@@ -261,7 +261,7 @@ dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
     <p class="lead">재단 수업자료를 그대로 쓰는 데서 그치지 않고, 생성형 AI와 함께 학습 사이트를 직접 설계했어요. 학생 한 명 한 명의 생각이 <b>기록</b>되고, 그 기록이 다음 <b>수업</b>으로 이어지게 하고 싶었어요.</p>
     <div class="loop"><span>🔍 진단 — 답 + 이유 + 확신도</span><i>→</i><span>🗺️ 반 오개념 지도</span><i>→</i><span>💊 처방 — 반례로 흔드는 수업</span><i>→</i><span>📈 확인 — 같은 개념 다시 묻기</span></div>
     <div class="key"><span class="ic">🔑</span><div><b>틀린 답 + 높은 확신도(3~4점) = 오개념의 증거.</b> 증거가 2개 이상이면 ‘확인’, 1개면 ‘의심’. 확신도가 낮은 오답은 ‘지식 부족’으로 따로 봐요. 학생 화면에는 오개념 딱지 대신 ‘내 생각의 변화’만 보여 줘요.</div></div>
-    <div class="more"><a href="odap-intro.html" target="_blank" rel="noopener">프로그램 소개 자세히 ↗</a></div>
+    <div class="more"><a href="odap-intro.html">프로그램 소개 자세히 →</a></div>
   </div>
 </section>
 
@@ -272,7 +272,7 @@ dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
     <div class="flow" id="flow"></div>
     <div class="key"><span class="ic">🎯</span><div><b>1차시 「무엇이 맞을까?」</b> 민수 “회전체를 회전축에 수직인 평면으로 자를 때 생기는 단면은 원 모양이야.” vs 지연 “원 모양이 아닐 수도 있어.” — 학생은 먼저 자기 생각과 확신도를 고르고, 교사가 연 반례(가운데가 빈 단면)를 만난 뒤 다시 생각해요.</div></div>
     <p class="note">화면은 가짜 학생과 가상 응답으로 찍은 예시예요(실제 학생 기록 아님). 그림을 누르면 크게 보여요.</p>
-    <div class="more"><a href="odap-guide.html" target="_blank" rel="noopener">사용 흐름 6단계 자세히 ↗</a></div>
+    <div class="more"><a href="odap-guide.html">사용 흐름 6단계 자세히 →</a></div>
   </div>
 </section>
 
@@ -303,7 +303,7 @@ dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
     </div>
     <div class="galbox">
       <div class="qr" id="gal-qr" aria-label="갤러리 QR"></div>
-      <div><b>🎨 회전체 작품 AR 갤러리</b> <span style="font-size:14px;font-weight:800;color:#1d5fb0">han.gl/회전체갤러리전학공</span>
+      <div><b>🎨 회전체 작품 AR 갤러리</b> <span style="font-size:14px;font-weight:800;color:#3B55A0">han.gl/회전체갤러리전학공</span>
         <p>오늘 선생님들의 작품과, 1학년 6~10반 학생들이 같은 활동으로 만든 작품을 모았어요. 작품을 누르면 3D로 돌려 보고, 스마트폰에서는 내 책상 위에 AR로 올려 볼 수 있어요.</p>
         <a class="btn" href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener">갤러리 열기 ↗</a></div>
     </div>
@@ -321,17 +321,17 @@ dialog p{color:#eee;margin:0;padding:8px 12px;font-size:14px}
     </div>
     <h3>자료 모음</h3>
     <div class="links">
-      <a href="odap-intro.html" target="_blank" rel="noopener"><img src="emoji/1f4d6.svg" alt=""><span>프로그램 소개<small>취지 · 운영 개요 · 화면</small></span></a>
-      <a href="odap-guide.html" target="_blank" rel="noopener"><img src="emoji/1f50d.svg" alt=""><span>사용 흐름 6단계<small>학생·교사 화면으로 보기</small></span></a>
-      <a href="odap-stats.html" target="_blank" rel="noopener"><img src="emoji/1f4ca.svg" alt=""><span>학생 데이터 자세히<small>오개념 분석과 수업 뒤 변화</small></span></a>
+      <a href="odap-intro.html"><img src="emoji/1f4d6.svg" alt=""><span>프로그램 소개<small>취지 · 운영 개요 · 화면</small></span></a>
+      <a href="odap-guide.html"><img src="emoji/1f50d.svg" alt=""><span>사용 흐름 6단계<small>학생·교사 화면으로 보기</small></span></a>
+      <a href="odap-stats.html"><img src="emoji/1f4ca.svg" alt=""><span>학생 데이터 자세히<small>오개념 분석과 수업 뒤 변화</small></span></a>
       <a href="https://j333333766-hub.github.io/odap-plc-ar-gallery/" target="_blank" rel="noopener"><img src="emoji/1f3a8.svg" alt=""><span>회전체 작품 AR 갤러리<small>선생님 + 6~10반 학생 작품</small></span></a>
       <a href="https://askmath.kosac.re.kr/learning-from-mistakes" target="_blank" rel="noopener"><img src="emoji/1f9e9.svg" alt=""><span>ASKMATH 오답의 재발견<small>한국과학창의재단 수업자료</small></span></a>
-      <a href="instructor.html" target="_blank" rel="noopener"><img src="emoji/1f9d1-200d-1f3eb.svg" alt=""><span>발표자 소개<small>조창현 · 알지오매스 책</small></span></a>
+      <a href="instructor.html"><img src="emoji/1f9d1-200d-1f3eb.svg" alt=""><span>발표자 소개<small>조창현 · 알지오매스 책</small></span></a>
     </div>
   </div>
 </section>
 
-<div class="foot">「오답의 재발견」 프로젝트 · 교육부 · 인천광역시교육청 · 한국과학창의재단 · 구월중학교 운영학교<br>학생 데이터는 이름 없이 집계한 숫자와 익명 글만 실었어요 · 이모지 그림: Twemoji (CC-BY 4.0)</div>
+<div class="foot site-foot">「오답의 재발견」 프로젝트 · 교육부 · 인천광역시교육청 · 한국과학창의재단 · 구월중학교 운영학교<br>학생 데이터는 이름 없이 집계한 숫자와 익명 글만 실었어요 · 이모지 그림: Twemoji (CC-BY 4.0)</div>
 </main>
 
 <dialog id="dlg"><img id="dlg-img" alt=""><p id="dlg-cap"></p></dialog>
